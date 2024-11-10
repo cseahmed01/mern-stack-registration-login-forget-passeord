@@ -131,7 +131,7 @@ const userResetPassword = async (req, res) => {
     await user.save();
 
     // Create the reset link
-    const resetLink = `http://localhost:3000/reset/${token}`;
+    const resetLink = `https://mern-stack-frontend-ochre.vercel.app/reset/${token}`;
 
     // Email body and subject
     const emailHTML = `
