@@ -9,7 +9,7 @@ function ResetPassword() {
   const handleReset = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5050/api/reset-password', { email });
+      await axios.post('mern-stack-registration-login-forget-password-api.vercel.app/api/reset-password', { email });
       setMessage('If this email is registered, a reset link has been sent.');
     } catch (error) {
       setMessage('Error sending reset email. Please try again.');
