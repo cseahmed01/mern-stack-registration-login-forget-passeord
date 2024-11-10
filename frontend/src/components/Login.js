@@ -14,7 +14,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5050/api/user/login', { email, password });
+      const response = await axios.post('mern-stack-registration-login-forget-password-api.vercel.app/api/user/login', { email, password });
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
     } catch (error) {
