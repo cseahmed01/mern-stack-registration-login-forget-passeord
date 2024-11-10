@@ -44,7 +44,9 @@ mongoose.connect(MONGODB_CONNECTION, { autoIndex: true })
     .catch(err => {
         console.error('Error connecting to MongoDB:', err);
     });
-
+app.get("/",(req, res)=>{
+ res.json("THIS API PAGE.")
+});
 // Set API Routes
 app.use('/api', router);
 
