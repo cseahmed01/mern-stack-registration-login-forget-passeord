@@ -11,7 +11,7 @@ function AllUsers() {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('mern-stack-registration-login-forget-password-api.vercel.app/api/alluser', {
+        const response = await axios.get('https://mern-stack-registration-login-forget-password-api.vercel.app/api/alluser', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(response.data);
