@@ -9,9 +9,7 @@ import { alluser as UserControlleralluser } from '../app/controllers/UserControl
 import { userResetPassword as UserControlleralluserResetPassword } from '../app/controllers/UserController.js';
 import { resetPassword as UserControllerallresetPassword } from '../app/controllers/UserController.js';
  
-router.get("/",(req, res)=>{
- res.json("THIS API PAGE.")
-});
+
 
 router.get("/feature1/TokenEncode", FeaturesController.TokenEncode);
 router.get("/feature2/TokenDecode", FeaturesController.TokenDecode);
