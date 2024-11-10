@@ -1,16 +1,16 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
-const cookieParser = require('cookie-parser');
-const hpp = require('hpp');
-const router = require('./routes/api');  // CommonJS import
-const fileUpload = require('express-fileupload');
-const { MONGODB_CONNECTION, MAX_JSON_SIZE, URL_ENCODED, WEB_CACHE, REQUEST_LIMIT_NUMBER, REQUEST_LIMIT_TIME } = require('./app/config/config');
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
+import hpp from 'hpp';
+import router from './routes/api.js';
+import { MONGODB_CONNECTION, PORT, MAX_JSON_SIZE, URL_ENCODED, WEB_CACHE, REQUEST_LIMIT_NUMBER, REQUEST_LIMIT_TIME } from './app/config/config.js';
+import fileUpload from 'express-fileupload';
 
 // Import the User model to create the collection if it doesn't exist
-require('./app/models/User');
+import './app/models/User.js';
 
 const app = express();
 
@@ -48,8 +48,10 @@ mongoose.connect(MONGODB_CONNECTION, { autoIndex: true })
 // Set API Routes
 app.use('/api', router);
 
-// Set Application Storage (static files if needed)
+// Set Application Storage
 app.use(express.static('storage'));
 
-// Export app for Vercel's serverless environment
-module.exports = app;
+// Run Your Express Back End Project
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}`);
+});
