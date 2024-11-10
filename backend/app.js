@@ -13,7 +13,12 @@ import fileUpload from 'express-fileupload';
 import './app/models/User.js';
 
 const app = express();
-
+app.use(cors({
+    origin: "*",  // Allow all origins
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  // Allow specific methods (or use ["*"] for all methods)
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],  // Allow specific headers
+    credentials: true,  // Allow credentials (cookies, authorization headers, etc.)
+}));
 // Global Application Middleware
 app.use(cors());
 app.use(express.json({ limit: MAX_JSON_SIZE }));
