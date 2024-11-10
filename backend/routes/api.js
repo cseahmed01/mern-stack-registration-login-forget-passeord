@@ -33,5 +33,7 @@ router.get('/verify-token', authMiddleware, (req, res) => {
     // If authMiddleware passed, token is valid
     res.status(200).json({ valid: true });
   });
+
+router.get('/all-user',UserControlleralluser);
   
 export default router;
