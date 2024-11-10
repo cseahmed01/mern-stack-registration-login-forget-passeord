@@ -12,7 +12,7 @@ function ResetPasswordForm() {
     e.preventDefault();
     try {
       // Send the new password and token to the backend to update the password
-      await axios.post('mern-stack-registration-login-forget-password-api.vercel.app/api/reset', { token, newPassword });
+      await axios.post('https://mern-stack-registration-login-forget-password-api.vercel.app/api/reset', { token, newPassword });
       setMessage('Password has been reset successfully.');
     } catch (error) {
       setMessage('Error resetting password. Please try again.');
